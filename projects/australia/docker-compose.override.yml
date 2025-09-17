@@ -1,0 +1,15 @@
+services:
+  api:
+    volumes:
+      - ../../../pelias/flyingdev-api:/code 
+      - ../../../pelias/flyingdev-dbclient:/code/node_modules/pelias-dbclient
+    environment:
+      - PELIAS_OPENSEARCH=true
+
+  schema:
+    volumes:
+      - ../../../pelias/flyingdev-schema:/code
+      - ../../../pelias/flyingdev-dbclient:/code/node_modules/pelias-dbclient
+    environment:
+      - PELIAS_OPENSEARCH=true
+
