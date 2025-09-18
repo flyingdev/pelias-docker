@@ -1,15 +1,11 @@
 services:
   api:
     volumes:
-      - ../../../pelias/flyingdev-api:/code 
-      - ../../../pelias/flyingdev-dbclient:/code/node_modules/pelias-dbclient
+      - ../../../pelias/flyingdev-api:/code/pelias/api
+      - /code/pelias/api/node_modules
+
     environment:
       - PELIAS_OPENSEARCH=true
-
-  schema:
-    volumes:
-      - ../../../pelias/flyingdev-schema:/code
-      - ../../../pelias/flyingdev-dbclient:/code/node_modules/pelias-dbclient
-    environment:
-      - PELIAS_OPENSEARCH=true
-
+    build:
+      context: ../../../pelias/flyingdev-api
+      dockerfile: Dockerfile
