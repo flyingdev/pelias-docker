@@ -3,9 +3,43 @@ services:
     volumes:
       - ../../../pelias/flyingdev-api:/code/pelias/api
       - /code/pelias/api/node_modules
-
+      - ../../../pelias/flyingdev-dbclient:/code/pelias/api/node_modules/pelias-dbclient
     environment:
       - PELIAS_OPENSEARCH=true
-    build:
-      context: ../../../pelias/flyingdev-api
-      dockerfile: Dockerfile
+    depends_on:
+      - opensearch
+
+  schema:
+    volumes:
+      - ../../../pelias/flyingdev-schema:/code/pelias/schema
+      - /code/pelias/schema/node_modules
+      - ../../../pelias/flyingdev-dbclient:/code/pelias/schema/node_modules/pelias-dbclient
+    environment:
+      - PELIAS_OPENSEARCH=true
+    depends_on:
+      - opensearch
+
+  elasticsearch:
+    scale: 0
+
+  opensearch:
+    image: opensearchproject/opensearch:1.3.14
+    container_name: pelias-opensearch
+    environment:
+      - cluster.name=pelias
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - "OPENSEARCH_JAVA_OPTS=-Xms2g -Xmx2g"
+      - plugins.security.disabled=true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+    ports:
+      - "9200:9200"
+      - "9600:9600"
+
+volumes:
+  opensearch-data:
