@@ -12,7 +12,6 @@ services:
   schema:
     volumes:
       - ../../../pelias/flyingdev-schema:/code/pelias/schema
-      - /code/pelias/schema/node_modules
       - ../../../pelias/flyingdev-dbclient:/code/pelias/schema/node_modules/pelias-dbclient
     environment:
       - PELIAS_OPENSEARCH=true
