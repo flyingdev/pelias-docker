@@ -41,6 +41,16 @@ services:
     ports:
       - "9200:9200"
       - "9600:9600"
-
+  whosonfirst:
+    volumes:
+      # Ensure node_modules inside the container stays container-managed
+      - /code/pelias/whosonfirst/node_modules
+      # Force pelias-dbclient to resolve to your local version
+      - ../../../pelias/flyingdev-dbclient:/code/pelias/whosonfirst/node_modules/pelias-dbclient
+    environment:
+      - PELIAS_OPENSEARCH=true
+      - OPENSEARCH_NODE=http://opensearch:9200
+    depends_on:
+      - opensearch
 volumes:
   opensearch-data:
