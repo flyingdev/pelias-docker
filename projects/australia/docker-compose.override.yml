@@ -20,8 +20,7 @@ services:
       - opensearch
 
   elasticsearch:
-    image: busybox
-    command: sleep 1
+    scale: 0
 
   opensearch:
     image: opensearchproject/opensearch:1.3.14
