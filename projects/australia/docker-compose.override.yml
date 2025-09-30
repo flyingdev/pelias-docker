@@ -15,6 +15,7 @@ services:
       - ../../../pelias/flyingdev-dbclient:/code/pelias/schema/node_modules/pelias-dbclient
     environment:
       - PELIAS_OPENSEARCH=true
+      - OPENSEARCH_NODE=http://opensearch:9200
     depends_on:
       - opensearch
 
