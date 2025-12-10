@@ -1,4 +1,5 @@
 network.host: 0.0.0.0
-discovery.seed_hosts: ["127.0.0.1"]
-cluster.initial_master_nodes: ["127.0.0.1"]
+discovery.seed_hosts: ["localhost", "127.0.0.1"]
+cluster.initial_master_nodes: ["localhost", "127.0.0.1"]
 plugins.security.disabled: true
+discovery.type: single-node  # Ensure the cluster runs as a single node

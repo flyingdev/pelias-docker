@@ -39,30 +39,36 @@ function opensearch_status(){
 function opensearch_status_newline(){ echo $(opensearch_status); }
 register 'opensearch' 'status' 'HTTP status code of the OpenSearch service' opensearch_status_newline
 
-# Function to wait for OpenSearch service to come up
 function opensearch_wait(){
   echo 'waiting for OpenSearch service to come up';
   retry_count=30
 
   i=1
   while [[ "$i" -le "$retry_count" ]]; do
-    if [[ $(opensearch_status) -eq 200 ]]; then
+    status_code=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:9200/_cluster/health")
+
+    # If the status code is 200 (OpenSearch is up)
+    if [[ "$status_code" -eq 200 ]]; then
       echo "OpenSearch up!"
       exit 0
-    elif [[ $(opensearch_status) -eq 408 ]]; then
-      # 408 indicates the server is up but not yet yellow status
-      printf ":"
+    # If the status code is 503 (cluster not bootstrapped)
+    elif [[ "$status_code" -eq 503 ]]; then
+      echo -n "."  # Print a dot to indicate that the service is still coming up
+    # If we get 408 (request timeout, cluster is up but not yet yellow)
+    elif [[ "$status_code" -eq 408 ]]; then
+      echo -n ":"
     else
-      printf "."
+      echo -n "."
     fi
     sleep 1
     i=$(($i + 1))
   done
 
-  echo -e "\n"
-  echo "OpenSearch did not come up, check configuration"
+  echo -e "\nOpenSearch did not come up, check configuration"
   exit 1
 }
+
+
 
 register 'opensearch' 'wait' 'wait for OpenSearch to start up' opensearch_wait
 
