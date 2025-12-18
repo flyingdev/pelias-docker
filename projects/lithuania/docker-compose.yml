@@ -9,17 +9,23 @@ services:
     restart: always
     ports: [ "127.0.0.1:4400:4400" ]
   schema:
-    image: pelias/schema:master
+    image: flyingdev/pelias-schema:master
     container_name: pelias_schema
     user: "${DOCKER_USER}"
+    environment:
+      - "PELIAS_OPENSEARCH=true"
+      - "OPENSEARCH_NODE=http://opensearch:9200"
     volumes:
       - "./pelias.json:/code/pelias.json"
   api:
-    image: pelias/api:master
+    image: flyingdev/pelias-api:master
     container_name: pelias_api
     user: "${DOCKER_USER}"
     restart: always
-    environment: [ "PORT=4000" ]
+    environment:
+      - "PORT=4000"
+      - "PELIAS_OPENSEARCH=true"
+      - "OPENSEARCH_NODE=http://opensearch:9200"
     ports: [ "0.0.0.0:4000:4000" ]
     volumes:
       - "./pelias.json:/code/pelias.json"
@@ -71,9 +77,12 @@ services:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
   polylines:
-    image: pelias/polylines:master
+    image: flyingdev/pelias-polylines:master
     container_name: pelias_polylines
     user: "${DOCKER_USER}"
+    environment:
+      - "PELIAS_OPENSEARCH=true"
+      - "OPENSEARCH_NODE=http://opensearch:9200"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"

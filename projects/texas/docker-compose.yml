@@ -37,25 +37,34 @@ services:
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
   whosonfirst:
-    image: pelias/whosonfirst:master
+    image: flyingdev/pelias-whosonfirst:master
     container_name: pelias_whosonfirst
     user: "${DOCKER_USER}"
+    environment:
+      - "PELIAS_OPENSEARCH=true"
+      - "OPENSEARCH_NODE=http://opensearch:9200"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
   openstreetmap:
-    image: pelias/openstreetmap:master
+    image: flyingdev/pelias-openstreetmap:master
     container_name: pelias_openstreetmap
     user: "${DOCKER_USER}"
+    environment:
+      - "PELIAS_OPENSEARCH=true"
+      - "OPENSEARCH_NODE=http://opensearch:9200"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
   openaddresses:
-    image: pelias/openaddresses:master
+    image: flyingdev/pelias-openaddresses:master
     container_name: pelias_openaddresses
     user: "${DOCKER_USER}"
+    environment:
+      - "PELIAS_OPENSEARCH=true"
+      - "OPENSEARCH_NODE=http://opensearch:9200"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
@@ -76,9 +85,12 @@ services:
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
   polylines:
-    image: pelias/polylines:master
+    image: flyingdev/pelias-polylines:master
     container_name: pelias_polylines
     user: "${DOCKER_USER}"
+    environment:
+      - "PELIAS_OPENSEARCH=true"
+      - "OPENSEARCH_NODE=http://opensearch:9200"
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"

@@ -4,9 +4,13 @@
     "timestamp": false
   },
   "esclient": {
-    "apiVersion": "7.5",
+    "engine": "opensearch",
     "hosts": [
-      { "host": "elasticsearch" }
+      {
+        "protocol": "http",
+        "host": "opensearch",
+        "port": 9200
+      }
     ]
   },
   "elasticsearch": {

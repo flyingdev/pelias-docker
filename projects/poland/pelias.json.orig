@@ -1,0 +1,99 @@
+{
+  "logger": {
+    "level": "debug",
+    "timestamp": false
+  },
+  "esclient": {
+    "apiVersion": "7.5",
+    "hosts": [
+      {
+        "host": "elasticsearch"
+      }
+    ]
+  },
+  "elasticsearch": {
+    "settings": {
+      "index": {
+        "refresh_interval": "10s",
+        "number_of_replicas": "0",
+        "number_of_shards": "1"
+      }
+    }
+  },
+  "acceptance-tests": {
+    "endpoints": {
+      "docker": "http://api:4000/v1/"
+    }
+  },
+  "api": {
+    "services": {
+      "pip": {
+        "url": "http://pip:4200"
+      },
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      },
+      "placeholder": {
+        "url": "http://placeholder:4100"
+      },
+      "interpolation": {
+        "url": "http://interpolation:4300"
+      }
+    }
+  },
+  "imports": {
+    "geonames": {
+      "datapath": "/data/geonames",
+      "countryCode": "PL"
+    },
+    "openstreetmap": {
+      "download": [
+        {
+          "sourceURL": "http://download.geofabrik.de/europe/poland-latest.osm.pbf"
+        }
+      ],
+      "leveldbpath": "/tmp",
+      "datapath": "/data/openstreetmap",
+      "import": [
+        {
+          "filename": "poland-latest.osm.pbf"
+        }
+      ]
+    },
+    "openaddresses": {
+      "datapath": "/data/openaddresses",
+      "files": [
+        "pl/dolnoslaskie",
+        "pl/kujawsko-pomorskie",
+        "pl/lodzkie",
+        "pl/lubelskie",
+        "pl/lubuskie",
+        "pl/malopolskie",
+        "pl/mazowieckie",
+        "pl/opolskie",
+        "pl/podkarpackie",
+        "pl/podlaskie",
+        "pl/pomorskie",
+        "pl/slaskie",
+        "pl/swietokrzyskie",
+        "pl/warminsko-mazurskie",
+        "pl/wielkopolskie",
+        "pl/zachodniopomorskie"
+      ]
+    },
+    "polyline": {
+      "datapath": "/data/polylines",
+      "files": [
+        "extract.0sv"
+      ]
+    },
+    "whosonfirst": {
+      "datapath": "/data/whosonfirst",
+      "countryCode": "PL",
+      "importPostalcodes": false,
+      "importPlace": [
+        "85633723"
+      ]
+    }
+  }
+}
