@@ -1,17 +1,17 @@
 {
   "logger": {
-    "level": "info",
+    "level": "debug",
     "timestamp": false
   },
   "esclient": {
-    "engine": "opensearch",
+    "apiVersion": "7.5",
     "hosts": [
       {
-        "protocol": "http",
         "host": "opensearch",
         "port": 9200
       }
-    ]
+    ],
+    "engine": "opensearch"
   },
   "elasticsearch": {
     "settings": {
@@ -29,10 +29,18 @@
   },
   "api": {
     "services": {
-      "pip": { "url": "http://pip:4200" },
-      "libpostal": { "url": "http://libpostal:4400" },
-      "placeholder": { "url": "http://placeholder:4100" },
-      "interpolation": { "url": "http://interpolation:4300" }
+      "pip": {
+        "url": "http://pip:4200"
+      },
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      },
+      "placeholder": {
+        "url": "http://placeholder:4100"
+      },
+      "interpolation": {
+        "url": "http://interpolation:4300"
+      }
     },
     "defaultParameters": {
       "focus.point.lat": 37.33480,
@@ -49,36 +57,45 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "https://s3.amazonaws.com/metro-extracts.nextzen.org/2018-05-19-13-00/san-francisco-bay_california.osm.pbf" }
+        {
+          "sourceURL": "https://data.geocode.earth/archive/portland-metro/2022-06-20/portland_oregon.osm.pbf"
+        }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{
-        "filename": "san-francisco-bay_california.osm.pbf"
-      }]
+      "import": [
+        {
+          "filename": "portland_oregon.osm.pbf"
+        }
+      ]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
       "files": [
         "us/ca/city_of_san_jose",
-		"us/ca/city_of_san_jose2",
-		"us/ca/city_of_santa_clara",
-		"us/ca/city_of_cupertino",
-		"us/ca/city_of_mountain_view",
-		"us/ca/city_of_palo_alto",
-		"us/ca/city_of_sunnyvale"
+        "us/ca/city_of_san_jose2",
+        "us/ca/city_of_santa_clara",
+        "us/ca/city_of_cupertino",
+        "us/ca/city_of_mountain_view",
+        "us/ca/city_of_palo_alto",
+        "us/ca/city_of_sunnyvale",
+        "us/or/portland_metro",
+        "us/or/city_of_salem"
       ]
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
+      "files": [
+        "extract.0sv"
+      ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
       "importPostalcodes": true,
       "countryCode": "US",
       "importPlace": [
-        "1360665447"
+        "85688513",
+        "85688623"
       ]
     },
     "transit": {
@@ -100,14 +117,18 @@
           "agencyName": "VTA",
           "layerName": "Stop"
         }
-       ]
-      },
+      ]
+    },
     "interpolation": {
       "download": {
         "tiger": {
           "datapath": "/data/tiger",
           "states": [
-            { "state_code": 6, "county_code": 85, "name": "Santa Clara County, CA" }
+            {
+              "state_code": 6,
+              "county_code": 85,
+              "name": "Santa Clara County, CA"
+            }
           ]
         }
       }

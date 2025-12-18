@@ -1,17 +1,17 @@
 {
   "logger": {
-    "level": "info",
+    "level": "debug",
     "timestamp": false
   },
   "esclient": {
-    "engine": "opensearch",
+    "apiVersion": "7.5",
     "hosts": [
       {
-        "protocol": "http",
         "host": "opensearch",
         "port": 9200
       }
-    ]
+    ],
+    "engine": "opensearch"
   },
   "elasticsearch": {
     "settings": {
@@ -29,10 +29,18 @@
   },
   "api": {
     "services": {
-      "pip": { "url": "http://pip:4200" },
-      "libpostal": { "url": "http://libpostal:4400" },
-      "placeholder": { "url": "http://placeholder:4100" },
-      "interpolation": { "url": "http://interpolation:4300" }
+      "pip": {
+        "url": "http://pip:4200"
+      },
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      },
+      "placeholder": {
+        "url": "http://placeholder:4100"
+      },
+      "interpolation": {
+        "url": "http://interpolation:4300"
+      }
     },
     "defaultParameters": {
       "focus.point.lat": 34.05,
@@ -49,30 +57,39 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "https://s3.amazonaws.com/metro-extracts.nextzen.org/los-angeles_california.osm.pbf" }
+        {
+          "sourceURL": "https://data.geocode.earth/archive/portland-metro/2022-06-20/portland_oregon.osm.pbf"
+        }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{
-        "filename": "los-angeles_california.osm.pbf"
-      }]
+      "import": [
+        {
+          "filename": "portland_oregon.osm.pbf"
+        }
+      ]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
       "files": [
-        "us/ca/los_angeles"
+        "us/ca/los_angeles",
+        "us/or/portland_metro",
+        "us/or/city_of_salem"
       ]
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
+      "files": [
+        "extract.0sv"
+      ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
       "importPostalcodes": true,
       "countryCode": "US",
       "importPlace": [
-        "102086957"
+        "85688513",
+        "85688623"
       ]
     },
     "transit": {
@@ -110,14 +127,18 @@
           "agencyName": "LADOT",
           "layerName": "Stop"
         }
-       ]
-      },
+      ]
+    },
     "interpolation": {
       "download": {
         "tiger": {
           "datapath": "/data/tiger",
           "states": [
-            { "state_code": 6, "county_code": 37, "name": "Los Angeles County, CA" }
+            {
+              "state_code": 6,
+              "county_code": 37,
+              "name": "Los Angeles County, CA"
+            }
           ]
         }
       }

@@ -7,9 +7,11 @@
     "apiVersion": "7.5",
     "hosts": [
       {
-        "host": "elasticsearch"
+        "host": "opensearch",
+        "port": 9200
       }
-    ]
+    ],
+    "engine": "opensearch"
   },
   "elasticsearch": {
     "settings": {
@@ -47,21 +49,23 @@
     "openstreetmap": {
       "download": [
         {
-          "sourceURL": "http://download.geofabrik.de/asia/israel-and-palestine-latest.osm.pbf"
+          "sourceURL": "https://data.geocode.earth/archive/portland-metro/2022-06-20/portland_oregon.osm.pbf"
         }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "israel-and-palestine-latest.osm.pbf"
+          "filename": "portland_oregon.osm.pbf"
         }
       ]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
       "files": [
-        "il/city_of_tel_aviv"
+        "il/city_of_tel_aviv",
+        "us/or/portland_metro",
+        "us/or/city_of_salem"
       ]
     },
     "polyline": {
@@ -75,7 +79,8 @@
       "countryCode": "IL",
       "importPostalcodes": true,
       "importPlace": [
-        "85632315"
+        "85688513",
+        "85688623"
       ]
     }
   }

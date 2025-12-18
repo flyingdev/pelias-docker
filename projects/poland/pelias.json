@@ -7,9 +7,11 @@
     "apiVersion": "7.5",
     "hosts": [
       {
-        "host": "elasticsearch"
+        "host": "opensearch",
+        "port": 9200
       }
-    ]
+    ],
+    "engine": "opensearch"
   },
   "elasticsearch": {
     "settings": {
@@ -49,14 +51,14 @@
     "openstreetmap": {
       "download": [
         {
-          "sourceURL": "http://download.geofabrik.de/europe/poland-latest.osm.pbf"
+          "sourceURL": "https://data.geocode.earth/archive/portland-metro/2022-06-20/portland_oregon.osm.pbf"
         }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
       "import": [
         {
-          "filename": "poland-latest.osm.pbf"
+          "filename": "portland_oregon.osm.pbf"
         }
       ]
     },
@@ -78,7 +80,9 @@
         "pl/swietokrzyskie",
         "pl/warminsko-mazurskie",
         "pl/wielkopolskie",
-        "pl/zachodniopomorskie"
+        "pl/zachodniopomorskie",
+        "us/or/portland_metro",
+        "us/or/city_of_salem"
       ]
     },
     "polyline": {
@@ -92,7 +96,8 @@
       "countryCode": "PL",
       "importPostalcodes": false,
       "importPlace": [
-        "85633723"
+        "85688513",
+        "85688623"
       ]
     }
   }

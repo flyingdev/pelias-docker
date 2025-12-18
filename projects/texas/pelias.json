@@ -1,17 +1,17 @@
 {
   "logger": {
-    "level": "info",
+    "level": "debug",
     "timestamp": false
   },
   "esclient": {
-    "engine": "opensearch",
+    "apiVersion": "7.5",
     "hosts": [
       {
-        "protocol": "http",
         "host": "opensearch",
         "port": 9200
       }
-    ]
+    ],
+    "engine": "opensearch"
   },
   "elasticsearch": {
     "settings": {
@@ -29,10 +29,18 @@
   },
   "api": {
     "services": {
-      "placeholder": { "url": "http://placeholder:4100" },
-      "pip": { "url": "http://pip:4200" },
-      "interpolation": { "url": "http://interpolation:4300" },
-      "libpostal": { "url": "http://libpostal:4400" }
+      "placeholder": {
+        "url": "http://placeholder:4100"
+      },
+      "pip": {
+        "url": "http://pip:4200"
+      },
+      "interpolation": {
+        "url": "http://interpolation:4300"
+      },
+      "libpostal": {
+        "url": "http://libpostal:4400"
+      }
     }
   },
   "imports": {
@@ -50,13 +58,17 @@
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "http://download.geofabrik.de/north-america/us/texas-latest.osm.pbf" }
+        {
+          "sourceURL": "https://data.geocode.earth/archive/portland-metro/2022-06-20/portland_oregon.osm.pbf"
+        }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{
-        "filename": "texas-latest.osm.pbf"
-      }]
+      "import": [
+        {
+          "filename": "portland_oregon.osm.pbf"
+        }
+      ]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
@@ -366,31 +378,37 @@
         "us/tx/yoakum",
         "us/tx/young",
         "us/tx/zapata",
-        "us/tx/zavala"
+        "us/tx/zavala",
+        "us/or/portland_metro",
+        "us/or/city_of_salem"
       ]
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
+      "files": [
+        "extract.0sv"
+      ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
       "countryCode": "US",
       "importPlace": [
-        "85688753"
+        "85688513",
+        "85688623"
       ]
     },
     "transit": {
       "datapath": "/data/transit",
-      "feeds": [
-      ]
+      "feeds": []
     },
     "interpolation": {
       "download": {
         "tiger": {
           "datapath": "/data/tiger",
           "states": [
-            { "state_code": 48 }
+            {
+              "state_code": 48
+            }
           ]
         }
       }
