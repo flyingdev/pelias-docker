@@ -4,6 +4,7 @@
     "timestamp": false
   },
   "esclient": {
+    "engine": "opensearch",
     "hosts": [
       {
         "protocol": "http",
