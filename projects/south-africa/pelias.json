@@ -3,7 +3,7 @@
     "level": "debug",
     "timestamp": false
   },
-  "esclient": {
+  "dbclient": {
     "apiVersion": "7.5",
     "hosts": [
       {

@@ -3,7 +3,7 @@
     "level": "debug",
     "timestamp": false
   },
-  "esclient": {
+  "dbclient": {
     "engine": "opensearch",
     "hosts": [
       {
