@@ -83,14 +83,14 @@
      volumes:
        - "./pelias.json:/code/pelias.json"
        - "${DATA_DIR}:/data"
--  elasticsearch:
--    image: pelias/elasticsearch:7.17.27
--    container_name: pelias_elasticsearch
+-  opensearch:
+-    image: pelias/opensearch:7.17.27
+-    container_name: pelias_opensearch
 -    user: "${DOCKER_USER}"
 -    restart: always
 -    ports: [ "127.0.0.1:9200:9200", "127.0.0.1:9300:9300" ]
 -    volumes:
--      - "${DATA_DIR}/elasticsearch:/usr/share/elasticsearch/data"
+-      - "${DATA_DIR}/opensearch:/usr/share/opensearch/data"
 -    ulimits:
 -      memlock:
 -        soft: -1
