@@ -119,7 +119,7 @@
         },
         {
           "layerId": "stops",
-          "url": "http://oregon-gtfs.com/gtfs_data/rideconnection-or-us/rideconnection-or-us.zip",
+          "url": "https://oregon-gtfs.trilliumtransit.com/gtfs_data/rideconnection-or-us/rideconnection-or-us.zip",
           "filename": "RIDECONNECTION-stops.txt",
           "agencyId": "RIDECONNECTION",
           "agencyName": "Ride Connection",
@@ -127,7 +127,7 @@
         },
         {
           "layerId": "stops",
-          "url": "http://oregon-gtfs.com/gtfs_data/sandy-or-us/sandy-or-us.zip",
+          "url": "https://oregon-gtfs.trilliumtransit.com/gtfs_data/sandy-or-us/sandy-or-us.zip",
           "filename": "SAM-stops.txt",
           "agencyId": "SAM",
           "agencyName": "SAM",
@@ -143,7 +143,7 @@
         },
         {
           "layerId": "stops",
-          "url": "http://oregon-gtfs.com/gtfs_data/swanisland-or-us/swanisland-or-us.zip",
+          "url": "https://oregon-gtfs.trilliumtransit.com/gtfs_data/swanisland-or-us/swanisland-or-us.zip",
           "filename": "SWAN-stops.txt",
           "agencyId": "SWAN",
           "agencyName": "Swan Island",
