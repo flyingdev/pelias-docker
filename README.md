@@ -103,9 +103,9 @@ echo 'DATA_DIR=./data' >> .env
 
 # run build
 pelias compose pull
-pelias elastic start
-pelias elastic wait
-pelias elastic create
+pelias opensearch start
+pelias opensearch wait
+pelias opensearch create
 pelias download all
 pelias prepare all
 pelias import all
@@ -225,14 +225,14 @@ Usage: pelias [command] [action] [options]
   download  tiger                    (re)download TIGER data
   download  transit                  (re)download transit data
   download  all                      (re)download all data
-  elastic   drop                     delete elasticsearch index & all data
-  elastic   create                   create elasticsearch index with pelias mapping
-  elastic   start                    start elasticsearch server
-  elastic   stop                     stop elasticsearch server
-  elastic   status                   HTTP status code of the elasticsearch service
-  elastic   wait                     wait for elasticsearch to start up
-  elastic   info                     display elasticsearch version and build info
-  elastic   stats                    display a summary of doc counts per source/layer
+  opensearch   drop                     delete opensearchsearch index & all data
+  opensearch   create                   create opensearchsearch index with pelias mapping
+  opensearch   start                    start opensearchsearch server
+  opensearch   stop                     stop opensearchsearch server
+  opensearch   status                   HTTP status code of the opensearchsearch service
+  opensearch   wait                     wait for opensearchsearch to start up
+  opensearch   info                     display opensearchsearch version and build info
+  opensearch   stats                    display a summary of doc counts per source/layer
   import    wof                      (re)import whosonfirst data
   import    oa                       (re)import openaddresses data
   import    osm                      (re)import openstreetmap data
@@ -297,26 +297,26 @@ pelias prepare placeholder              build placeholder sqlite databases
 pelias prepare all                      build all services which have a prepare step
 ```
 
-### Elastic commands
+### opensearch commands
 
-The elastic commands control starting/stopping/configuring elasticsearch.
+The opensearch commands control starting/stopping/configuring opensearchsearch.
 
-The special `pelias elastic wait` command can be used in scripts to block the script execution until elasticsearch is ready to accept connections.
+The special `pelias opensearch wait` command can be used in scripts to block the script execution until opensearchsearch is ready to accept connections.
 
 ```bash
-pelias elastic drop                     delete elasticsearch index & all data
-pelias elastic create                   create elasticsearch index with pelias mapping
-pelias elastic start                    start elasticsearch server
-pelias elastic stop                     stop elasticsearch server
-pelias elastic status                   HTTP status code of the elasticsearch service
-pelias elastic wait                     wait for elasticsearch to start up
-pelias elastic info                     display elasticsearch version and build info
-pelias elastic stats                    display a summary of doc counts per source/layer
+pelias opensearch drop                     delete opensearchsearch index & all data
+pelias opensearch create                   create opensearchsearch index with pelias mapping
+pelias opensearch start                    start opensearchsearch server
+pelias opensearch stop                     stop opensearchsearch server
+pelias opensearch status                   HTTP status code of the opensearchsearch service
+pelias opensearch wait                     wait for opensearchsearch to start up
+pelias opensearch info                     display opensearchsearch version and build info
+pelias opensearch stats                    display a summary of doc counts per source/layer
 ```
 
 ### Import commands
 
-The import commands import source data in to elasticsearch.
+The import commands import source data in to opensearchsearch.
 
 ```bash
 pelias import wof                      (re)import whosonfirst data
@@ -352,7 +352,7 @@ test      run                      run fuzzy-tester test cases
 Once the build is complete, you can cleanup temporary files that are no longer useful. The numbers in this snippet below are rough estimates for a full planet build.
 
 ```
-# These folders can be entirely deleted after the import into elastic search
+# These folders can be entirely deleted after the import into opensearch search
 rm -rf /data/openaddresses #(~43GB)
 rm -rf /data/tiger #(~13GB)
 rm -rf /data/openstreetmap #(~46GB)

@@ -18,9 +18,9 @@ To run a complete build, execute the following commands:
 
 ```bash
 pelias compose pull
-pelias elastic start
-pelias elastic wait
-pelias elastic create
+pelias opensearch start
+pelias opensearch wait
+pelias opensearch create
 pelias download all
 pelias prepare all
 pelias import all

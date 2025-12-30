@@ -45,9 +45,9 @@ git submodule init
 git submodule update
 
 pelias compose pull
-pelias elastic start
-pelias elastic wait
-pelias elastic create
+pelias opensearch start
+pelias opensearch wait
+pelias opensearch create
 pelias download all
 pelias prepare all
 pelias import all
