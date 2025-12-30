@@ -75,7 +75,7 @@ For more info on time estimates and hardware requirements for large build see ou
 
 ## Quickstart build script
 
-The following shell script can be used to quickly get started with a Pelias build.
+The following quickstart script can be used to create a running Pelias stack for the `portland-metro` area.
 
 ```bash
 #!/bin/bash
@@ -111,7 +111,8 @@ pelias prepare all
 pelias import all
 pelias compose up
 
-# optionally run tests
+# optionally run tests after waiting for containers to fully boot
+sleep 10
 pelias test run
 ```
 
