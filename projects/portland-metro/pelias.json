@@ -8,7 +8,7 @@
     "hosts": [
       {
         "protocol": "http",
-        "host": "opensearch",
+        "host": "host.docker.internal",
         "port": 9200
       }
     ]
