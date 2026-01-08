@@ -56,7 +56,7 @@ services:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
   csv-importer:
-    image: pelias/csv-importer:master
+    image: flyingdev/pelias-csv-importer:master
     container_name: pelias_csv_importer
     user: "${DOCKER_USER}"
     volumes:
