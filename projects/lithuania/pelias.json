@@ -4,7 +4,6 @@
     "timestamp": false
   },
   "dbclient": {
-    "apiVersion": "7.5",
     "hosts": [
       {
         "protocol": "http",

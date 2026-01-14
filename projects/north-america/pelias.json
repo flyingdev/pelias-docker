@@ -4,11 +4,10 @@
     "timestamp": false
   },
   "dbclient": {
-    "apiVersion": "7.5",
     "hosts": [
       {
         "protocol": "http",
-        "host": "host.docker.internal",
+        "host": "opensearch",
         "port": 9200
       }
     ],
