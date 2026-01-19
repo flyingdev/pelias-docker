@@ -50,6 +50,8 @@ services:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
+    environment:
+      - "NODE_OPTIONS=--max-old-space-size=12000"
   openaddresses:
     image: flyingdev/pelias-openaddresses:master
     container_name: pelias_openaddresses
@@ -58,6 +60,8 @@ services:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
+    environment:
+      - "NODE_OPTIONS=--max-old-space-size=12000"
   geonames:
     image: pelias/geonames:master
     container_name: pelias_geonames
