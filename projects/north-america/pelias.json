@@ -1,6 +1,6 @@
 {
   "logger": {
-    "level": "debug",
+    "level": "info",
     "timestamp": false
   },
   "dbclient": {
@@ -62,7 +62,7 @@
           "sourceURL": "https://download.geofabrik.de/north-america/us-latest.osm.pbf"
         }
       ],
-      "leveldbpath": "/tmp",
+      "leveldbpath": "/data/openstreetmap/leveldb",
       "datapath": "/data/openstreetmap",
       "import": [
         {
@@ -73,7 +73,7 @@
     "openaddresses": {
       "datapath": "/data/openaddresses",
       "files": [
-        "us"
+        "us/*"
       ]
     },
     "polyline": {
@@ -135,13 +135,7 @@
       "download": {
         "tiger": {
           "datapath": "/data/tiger",
-          "states": [
-            {
-              "state_code": 41,
-              "county_code": 67,
-              "name": "Washington County, OR"
-            }
-          ]
+          "states": "all"
         }
       }
     }
