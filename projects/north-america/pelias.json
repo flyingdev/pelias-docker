@@ -73,7 +73,7 @@
     "openaddresses": {
       "datapath": "/data/openaddresses",
       "files": [
-        "us/*"
+        "us"
       ]
     },
     "polyline": {
