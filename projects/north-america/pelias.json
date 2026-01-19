@@ -59,7 +59,7 @@
     "openstreetmap": {
       "download": [
         {
-          "sourceURL": "https://planet.openstreetmap.org/pbf/us-latest.osm.pbf"
+          "sourceURL": "https://download.geofabrik.de/north-america/us-latest.osm.pbf"
         }
       ],
       "leveldbpath": "/tmp",
