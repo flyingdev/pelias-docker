@@ -45,6 +45,7 @@
   },
   "imports": {
     "adminLookup": {
+      "maxConcurrent": 24,
       "enabled": true
     },
     "csv": {
@@ -73,7 +74,7 @@
     "openaddresses": {
       "datapath": "/data/openaddresses",
       "files": [
-        "us/**/*.geojson"
+        "us"
       ]
     },
     "polyline": {
@@ -85,50 +86,6 @@
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
       "importPostalcodes": true,
-      "countryCode": [
-        "AI",
-        "AG",
-        "AW",
-        "BS",
-        "BB",
-        "BZ",
-        "BM",
-        "BQ",
-        "BO",
-        "VG",
-        "KY",
-        "CA",
-        "CR",
-        "CU",
-        "CW",
-        "DM",
-        "DO",
-        "SV",
-        "GD",
-        "GL",
-        "GT",
-        "HT",
-        "HN",
-        "JM",
-        "MQ",
-        "MS",
-        "NI",
-        "VE",
-        "PA",
-        "PR",
-        "BL",
-        "KN",
-        "LC",
-        "PM",
-        "VC",
-        "SX",
-        "MF",
-        "MX",
-        "TT",
-        "TC",
-        "US",
-        "VI"
-      ],
       "importPlace": "85633793"
     },
     "interpolation": {
