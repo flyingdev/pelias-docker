@@ -22,6 +22,7 @@ services:
     environment: 
       - "PORT=4000"
       - "PELIAS_WOF_ADMIN_LOOKUP_MAX_CONCURRENT=24"
+      - "PELIAS_ADMIN_LOOKUP_MAX_CONCURRENT=24"
     ports: ["0.0.0.0:4000:4000"]
     volumes:
       - "./pelias.json:/code/pelias.json"
