@@ -30,8 +30,7 @@
   "api": {
     "services": {
       "pip": {
-        "url": "http://pip:4200",
-        "maxConcurrentRequests": 24
+        "url": "http://pip:4200"
       },
       "wof-admin-lookup": {
         "maxConcurrentRequests": 24
