@@ -30,7 +30,11 @@
   "api": {
     "services": {
       "pip": {
-        "url": "http://pip:4200"
+        "url": "http://pip:4200",
+        "maxConcurrentRequests": 24
+      },
+      "wof-admin-lookup": {
+        "maxConcurrentRequests": 24
       },
       "libpostal": {
         "url": "http://libpostal:4400"
