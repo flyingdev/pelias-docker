@@ -65,6 +65,8 @@ services:
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
     environment:
+      - "PELIAS_IMPORTS__OPENADDRESSES__FILES=**/*.csv"
+      - "PELIAS_IMPORTS__ADMINLOOKUP__MAXCONCURRENT=24"
       - "NODE_OPTIONS=--max-old-space-size=12000"
   geonames:
     image: pelias/geonames:master
