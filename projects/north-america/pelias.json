@@ -72,10 +72,7 @@
       ]
     },
     "openaddresses": {
-      "datapath": "/data/openaddresses",
-      "files": [
-        "us"
-      ]
+      "datapath": "/data/openaddresses"
     },
     "polyline": {
       "datapath": "/data/polylines",
