@@ -80,7 +80,7 @@
     "polyline": {
       "datapath": "/data/polylines",
       "files": [
-        "extract.0sv"
+        "north-america-valhalla.polylines.0sv.gz"
       ]
     },
     "whosonfirst": {
