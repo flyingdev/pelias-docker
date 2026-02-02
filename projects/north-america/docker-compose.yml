@@ -19,7 +19,7 @@ services:
     container_name: pelias_api
     user: "${DOCKER_USER}"
     restart: always
-    environment: 
+    environment:
       - "PORT=4000"
       - "PELIAS_WOF_ADMIN_LOOKUP_MAX_CONCURRENT=24"
       - "PELIAS_ADMIN_LOOKUP_MAX_CONCURRENT=24"
@@ -138,4 +138,16 @@ services:
     ports:
       - 9200:9200
       - 9300:9300
-
+  valhalla:
+    image: gisops/valhalla:latest
+    container_name: valhalla
+    ports:
+      - "8002:8002"
+    volumes:
+      - "${DATA_DIR}/openstreetmap:/custom_files"
+    environment:
+      - tile_extract=/custom_files/us-latest.osm.pbf
+      - build_elevation=True
+      - build_admins=True
+      - build_time_zones=True
+      - server_threads=4
