@@ -151,3 +151,11 @@ services:
       - build_admins=True
       - build_time_zones=True
       - server_threads=4
+  tileserver:
+    image: maptiler/tileserver-gl
+    container_name: tileserver
+    ports:
+      - "8080:8080"
+    volumes:
+      - "${DATA_DIR}/openstreetmap:/data"
+    command: "-p 8080 -d /data/north-america.mbtiles"
