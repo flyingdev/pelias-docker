@@ -158,4 +158,4 @@ services:
       - "8080:8080"
     volumes:
       - "${DATA_DIR}/openstreetmap:/data"
-    command: "-p 8080 -d /data/north-america.mbtiles"
+    command: "-p 8080 /data/north-america.mbtiles"
